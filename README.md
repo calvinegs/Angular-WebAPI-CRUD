@@ -1,27 +1,16 @@
-# AngularWebapiCrud
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+為完整性考量，還是記錄如何一步步從無到有使用 Angular 14 相關功能來建立一個使用者資料註冊、登入的表單功能（連結到後端 node+MySQL Web API )，在這些表單中按下送出時會自動檢核使用者所輸入的資料是否合乎程式中所設定的檢核邏輯，並顯示合適的訊息反應給使用者。其中將會使用到下列技術:
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Angular CLI 14
+Bootstrap 5 (UI Framework)
+Angular
+Reactive Form
+Custome Validator
+Interceptor
+JWT
+Session Storage
+Router
+Services
+Guard & Router Data
+RxJs
+Custome Directive
