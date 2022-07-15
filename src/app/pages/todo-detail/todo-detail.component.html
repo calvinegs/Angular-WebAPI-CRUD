@@ -1,0 +1,91 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentTodo.id">
+      <h4>Todo</h4>
+      <div>
+        <label><strong>Title:</strong></label> {{ currentTodo.title }}
+      </div>
+      <div>
+        <label><strong>Description:</strong></label>
+        {{ currentTodo.description }}
+      </div>
+      <div>
+        <label><strong>Status:</strong></label>
+        {{ currentTodo.status ? "Done" : "Pending" }}
+      </div>
+      <a [routerLink]="['/tododetail/' + currentTodo.id]" [queryParams]="{showbackto: 1}">
+        Edit
+      </a>
+      
+      <!-- <a routerLink="/tododetail/{{ currentTodo.id }}" > -->
+      <!-- <a routerLink="/tododetail/{{ currentTodo.id }}?showbackto=1" >
+        Edit
+      </a> -->
+    </div>
+    <div *ngIf="!currentTodo">
+      <br />
+      <p>請點選 Todo...</p>
+    </div>
+  </div>
+  <ng-template #editable>
+    <div *ngIf="currentTodo.id" class="edit-form">
+      <h4>Todo</h4>
+      <form>
+        <div class="mb-4">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            id="title"
+            [(ngModel)]="currentTodo.title"
+            name="title"
+          />
+        </div>
+        <div class="mb-4">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            [(ngModel)]="currentTodo.description"
+            name="description"
+          />
+        </div>
+        <div class="mb-4">
+          <label><strong>Status:</strong></label>
+          {{ currentTodo.status ? "Done" : "Pending" }}
+        </div>
+      </form>
+      <button
+        class="btn btn-primary"
+        *ngIf="currentTodo.status"
+        (click)="updateStatus(false)">
+        Pending
+      </button>
+      <button
+        *ngIf="!currentTodo.status"
+        class="btn btn-primary"
+        (click)="updateStatus(true)">
+        Done
+      </button>
+      <button class="btn btn-danger" *csdIf (click)="deleteTodo()">
+        Delete
+      </button>
+      <button
+        type="submit"
+        class="btn btn-warning"
+        (click)="updateTodo()">
+        Update
+      </button>
+      <button
+        *ngIf="showBackto == 1"
+        class="btn btn-primary float-end"
+        (click)="backtoTodo()">
+        Back
+      </button>
+      <p>{{ message }}</p>
+    </div>
+    <div *ngIf="!currentTodo.id">
+      <br />
+      <p>Cannot access this Todo...</p>
+    </div>
+  </ng-template>
